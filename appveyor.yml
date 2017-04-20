@@ -34,10 +34,10 @@ artifacts:
 
 deploy:
   - provider: Environment
-    name: PreRelease NuGet Feed
+    name: EKM PreRelease NuGet Feed
     on:
       branch: master
   - provider: Environment
-    name: Public NuGet Feed
+    name: EKM Public NuGet Feed
     on:
       appveyor_repo_tag: true
