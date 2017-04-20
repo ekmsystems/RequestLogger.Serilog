@@ -16,13 +16,12 @@ namespace RequestLogger.Serilog.Tests
             _logger = new Mock<ILogger>();
             _messageFormatter = new Mock<IMessageFormatter>();
             _requestLogger = new SerilogLogger(_logger.Object, _messageFormatter.Object);
-
         }
 
         private Mock<ILogger> _logger;
         private Mock<IMessageFormatter> _messageFormatter;
         private IRequestLogger _requestLogger;
-        
+
         [Test]
         public void Log_ShouldCall_Logger_Information()
         {
