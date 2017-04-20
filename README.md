@@ -1,11 +1,11 @@
 # RequestLogger.Serilog
 
+RequestLogger that can be used with Serilog.
+
 [![Build status](https://ci.appveyor.com/api/projects/status/iu6dojwpm61rmh8j/branch/master?svg=true)](https://ci.appveyor.com/project/mrstebo/requestlogger-serilog-v1nn5/branch/master)
 [![Coverage Status](https://coveralls.io/repos/github/ekmsystems/RequestLogger.Serilog/badge.svg?branch=master)](https://coveralls.io/github/ekmsystems/RequestLogger.Serilog?branch=master)
-[![MyGet Prerelease](https://img.shields.io/myget/ekmsystems/v/RequestLogger.Serilog.svg?label=MyGet_Prerelease)](https://www.myget.org/feed/ekmsystems/package/nuget/RequestLogger.Serilog)
+[![MyGet](https://img.shields.io/myget/ekmsystems/v/RequestLogger.Serilog.svg?label=MyGet_Prerelease)](https://www.myget.org/feed/ekmsystems/package/nuget/RequestLogger.Serilog)
 [![NuGet](https://img.shields.io/nuget/v/RequestLogger.Serilog.svg)](https://www.nuget.org/packages/RequestLogger.Serilog/)
-
-RequestLogger that can be used with Serilog.
 
 RequestLogger.Serilog is available via [NuGet](https://www.nuget.org/packages/RequestLogger.Serilog/):
 
