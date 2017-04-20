@@ -5,9 +5,13 @@ pull_requests:
   do_not_increment_build_number: true
 
 nuget:
-  account_feed: true
-  project_feed: true
+  account_feed: false
+  project_feed: false
   disable_publish_on_pr: true
+
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: hPviksRBOB6LUx/A3Fur7P8x+uQ8aNLMiPJAoh39WHeb7knFZxSpyB6H+/G9yg3Z
 
 cache:
   - packages -> **\packages.config
@@ -27,6 +31,17 @@ build:
 
 after_build:
   - cmd: nuget pack src\RequestLogger.Serilog\RequestLogger.Serilog.csproj -IncludeReferencedProjects -Build -Version "%GitVersion_NuGetVersion%" -Prop "target=%CONFIGURATION%"
+
+after_test:
+  - nuget install NUnit.ConsoleRunner -Version 3.6.1 -OutputDirectory tools
+  - nuget install OpenCover -Version 4.6.519 -OutputDirectory tools
+  - nuget install coveralls.net -Version 0.7.0 -OutputDirectory tools
+  - ps: >-
+      .\tools\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]* -[*.Tests]* -[*Example]*" -target:"tools\NUnit.ConsoleRunner.3.6.1\tools\nunit3-console.exe" -targetargs:"/domain:single src\RequestLogger.Serilog.Tests\bin\$env:CONFIGURATION\RequestLogger.Serilog.Tests.dll" -output:opencoverCoverage.xml
+
+      $coveralls = (Resolve-Path "tools/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
+
+      & $coveralls --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --useRelativePaths --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_BUILD_NUMBER --serviceName appveyor
 
 artifacts:
   - path: '*.nupkg'
