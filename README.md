@@ -16,8 +16,8 @@ Install-Package RequestLogger.Serilog
 
 There are some example projects in this repository that will show you how to use this package:
 
-- [Owin](src/Examples/OwinExample)
 - [ASP.NET](src/Examples/AspNetExample)
+- [Owin](src/Examples/OwinExample)
 
 ## Custom Message Format
 
