@@ -13,12 +13,6 @@ namespace OwinExample
             var requestLogger = new SerilogLogger(logger);
 
             app.UseRequestLoggerMiddleware(requestLogger);
-
-            app.Run(ctx =>
-            {
-                ctx.Response.ContentType = "text/plain";
-                return ctx.Response.WriteAsync("Hello World");
-            });
         }
     }
 }

@@ -9,6 +9,12 @@ namespace OwinExample
         public void Configuration(IAppBuilder app)
         {
             ConfigureLogging(app);
+
+            app.Run(ctx =>
+            {
+                ctx.Response.ContentType = "text/plain";
+                return ctx.Response.WriteAsync("Hello World");
+            });
         }
     }
 }
