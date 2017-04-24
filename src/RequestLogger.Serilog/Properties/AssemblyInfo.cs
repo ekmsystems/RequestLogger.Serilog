@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("RequestLogger.Serilog")]
 [assembly: AssemblyDescription("RequestLogger that can be used with Serilog.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Steven Atkinson")]
+[assembly: AssemblyCompany("mrstebo, ekmsystems")]
 [assembly: AssemblyProduct("RequestLogger.Serilog")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
