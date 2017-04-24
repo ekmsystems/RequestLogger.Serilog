@@ -8,14 +8,14 @@ namespace RequestLogger.Serilog.Tests
 {
     [TestFixture]
     [Parallelizable]
-    public class SerilogLoggerTests
+    public class SerilogRequestLoggerTests
     {
         [SetUp]
         public void SetUp()
         {
             _logger = new Mock<ILogger>();
             _messageFormatter = new Mock<IMessageFormatter>();
-            _requestLogger = new SerilogLogger(_logger.Object, _messageFormatter.Object);
+            _requestLogger = new SerilogRequestLogger(_logger.Object, _messageFormatter.Object);
         }
 
         private Mock<ILogger> _logger;

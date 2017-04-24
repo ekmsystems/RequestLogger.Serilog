@@ -4,12 +4,12 @@ using Serilog;
 
 namespace RequestLogger.Serilog
 {
-    public class SerilogLogger  : IRequestLogger
+    public class SerilogRequestLogger  : IRequestLogger
     {
         private readonly ILogger _logger;
         private readonly IMessageFormatter _formatter;
 
-        public SerilogLogger(ILogger logger, IMessageFormatter formatter = null)
+        public SerilogRequestLogger(ILogger logger, IMessageFormatter formatter = null)
         {
             _logger = logger;
             _formatter = formatter ?? new DefaultMessageFormatter();

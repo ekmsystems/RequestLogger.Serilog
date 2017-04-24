@@ -59,7 +59,7 @@
   <ItemGroup>
     <Compile Include="Formatters\DefaultMessageFormatterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SerilogLoggerTests.cs" />
+    <Compile Include="SerilogRequestLoggerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -29,7 +29,7 @@ namespace AspNetExample
         private static RequestLoggerModule CreateRequestLoggerModule()
         {
             var logger = new LoggerConfiguration().WriteTo.Trace().CreateLogger();
-            var requestLogger = new SerilogLogger(logger);
+            var requestLogger = new SerilogRequestLogger(logger);
             return new RequestLoggerModule(requestLogger);
         }
     }

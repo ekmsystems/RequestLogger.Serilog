@@ -10,7 +10,7 @@ namespace OwinExample
         private static void ConfigureLogging(IAppBuilder app)
         {
             var logger = new LoggerConfiguration().WriteTo.Trace().CreateLogger();
-            var requestLogger = new SerilogLogger(logger);
+            var requestLogger = new SerilogRequestLogger(logger);
 
             app.UseRequestLoggerMiddleware(requestLogger);
         }
